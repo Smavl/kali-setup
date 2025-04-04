@@ -1,0 +1,43 @@
+- name: "Installing Utility Packages"
+  package:
+    name:
+      - jq
+      - pipx
+      - flameshot
+    state: latest
+  become: true
+  become_method: sudo
+- name: "Fuzzing/scanning tools"
+  package:
+    name:
+      - feroxbuster
+    state: latest
+  become: true
+  become_method: sudo
+- name: "binary/reversing packages"
+  package:
+    name:
+      - ghidra
+      - gdb
+    state: latest
+  become: true
+  become_method: sudo
+
+- name: Create autostart directory
+  file:
+    path: /home/kali/gitclones/
+    state: directory
+    mode: '0755'
+
+
+- name: "Installing useful github repos"
+  git:
+    repo: "{{ item.repo }}"
+    dest: "{{ item.location }}"
+  loop:
+    - { repo: "https://github.com/danielmiessler/SecLists", location: "/opt/SecLists" }
+    - { repo: "https://github.com/RsaCtfTool/RsaCtfTool", location: "/home/kali/gitclones/RSACtfTool" }
+    - { repo: "https://github.com/Zeecka/AperiSolve", location: "/home/kali/gitclones/AperiSolve" }
+    - { repo: "https://github.com/peass-ng/PEASS-ng", location: "/home/kali/gitclones/PEASS-ng" }
+  become: true
+  become_method: sudo

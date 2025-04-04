@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Exec=/home/kali/.config/start.sh
+Name=Start_Script
+Comment=autorun_script
+X-GNOME-Autostart-enabled=true
+StartupNotify=true
+OnlyShowIn=XFCE;
+RunHook=0
+Terminal=false
+Hidden=false
+
+

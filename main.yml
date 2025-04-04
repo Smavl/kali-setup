@@ -1,0 +1,7 @@
+---
+- name: "Setting up kali"
+  hosts: localhost
+  connection: local
+  roles:
+    - role: "roles/configure-startup-script"
+    - role: "roles/install-packages"
