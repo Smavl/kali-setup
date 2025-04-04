@@ -1,0 +1,51 @@
+- name: Update apt cache
+  apt:
+    update_cache: yes
+  become: yes
+
+- name: Install required packages
+  apt:
+    name:
+      - python3
+      - python3-pip
+      - python3-dev
+      - git
+      - libssl-dev
+      - libffi-dev
+      - build-essential
+      - libcapstone-dev
+      - libc6-dev
+      - libstdc++6
+      - libunwind-dev
+    state: present
+  become: yes
+
+# I hate pip
+#- name: Upgrade pip using pip3
+#  pip:
+#    name: pip
+#    state: latest
+#    executable: pip3
+
+#- name: Install/Upgrade pwntools 
+#  apt:
+#    name: python-pwntools
+#    state: latest
+- name: Clone pwndbg repository
+  git:
+    repo: https://github.com/pwndbg/pwndbg.git
+    dest: /home/kali/gitclones/pwndbg
+    #version: master
+
+- name: Run pwndbg setup script
+  command:
+    cmd: ./setup.sh
+    chdir: /home/kali/gitclones/pwndbg
+  register: pwndbg_setup
+  changed_when: "'Installation complete' in pwndbg_setup.stdout"
+
+- name: Verify pwndbg installation
+  command: gdb -q -ex quit
+  register: gdb_output
+  changed_when: false
+  failed_when: "'pwndbg' not in gdb_output.stdout"

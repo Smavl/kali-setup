@@ -4,6 +4,7 @@
       - jq
       - pipx
       - flameshot
+      - gh
     state: latest
   become: true
   become_method: sudo
