@@ -1,0 +1,41 @@
+- name: "Ensure required packages are installed"
+  package:
+    name:
+      - software-properties-common
+      - apt-transport-https
+      - curl
+      - wget
+      - gpg
+    state: present
+    update_cache: yes
+  become: yes
+
+- name: "Install Visual Studio Code from .deb"
+  become: yes
+  set_fact:
+    vscode_deb_url: https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
+    vscode_deb_path: /tmp/vscode.deb
+
+- name: "Preseed debconf to add Microsoft repo automatically"
+  debconf:
+    name: code
+    question: code/add-microsoft-repo
+    value: "true"
+    vtype: boolean
+  become: yes
+
+- name: "Download VS Code .deb"
+  get_url:
+    url: "{{ vscode_deb_url }}"
+    dest: "{{ vscode_deb_path }}"
+
+- name: "Install VS Code from .deb"
+  apt:
+    deb: "{{ vscode_deb_path }}"
+    state: present
+  become: yes
+
+- name: "Remove the downloaded .deb file"
+  file:
+    path: "{{ vscode_deb_path }}"
+    state: absent

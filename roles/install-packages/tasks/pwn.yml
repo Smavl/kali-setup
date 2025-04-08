@@ -3,6 +3,16 @@
     update_cache: yes
   become: yes
 
+- name: "binary/reversing packages"
+  package:
+    name:
+      - ghidra
+      - gdb
+      - python3-pwntools
+    state: latest
+  become: true
+  become_method: sudo
+
 - name: Install required packages
   apt:
     name:
@@ -27,15 +37,10 @@
 #    state: latest
 #    executable: pip3
 
-#- name: Install/Upgrade pwntools 
-#  apt:
-#    name: python-pwntools
-#    state: latest
 - name: Clone pwndbg repository
   git:
     repo: https://github.com/pwndbg/pwndbg.git
     dest: /home/kali/gitclones/pwndbg
-    #version: master
 
 - name: Run pwndbg setup script
   command:
@@ -49,3 +54,5 @@
   register: gdb_output
   changed_when: false
   failed_when: "'pwndbg' not in gdb_output.stdout"
+  
+

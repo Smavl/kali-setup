@@ -1,0 +1,10 @@
+- name: "Ensure that open-vm-tools packages are installed"
+  package:
+    name:
+      - open-vm-tools-desktop 
+      - open-vm-tools
+      - fuse
+    state: latest
+  become: true
+  become_method: sudo
+

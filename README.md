@@ -14,6 +14,20 @@ ansible-playbook main.yml --ask-become-pass -vv
 ...
 ```
 
+Should you have enabled shared folders, run:
+```bash
+kali@kali:~$ kali-tweaks
+```
+then:
+> In the Kali Tweaks menu, select Virtualization, then Install additional packages and scripts for VMware. Congratulations, you now have two additional tools in your toolbox!
+
+Then:
+
+```bash
+kali@kali:~$ sudo mount-shared-folders
+```
+[Kali docs](https://www.kali.org/docs/virtualization/install-vmware-guest-tools/#adding-support-for-shared-folders-when-using-ovt)
+
 ## Tasks/roles:
 
 - Configure startup script
@@ -31,4 +45,9 @@ ansible-playbook main.yml --ask-become-pass -vv
 ## TODO:
 - Burp cert
 - semi-auto install firefox extensions [ansible-role-firefox](https://github.com/unrblt/ansible-role-firefox)
+- Keybindings (launch terminal and etc)
 - more tools
+
+
+- foremost
+- volatility 2 & 3
