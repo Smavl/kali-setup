@@ -9,6 +9,8 @@
       - resolvconf
       - lftp
       - tealdeer
+      - openvpn
+      - wireguard
     state: latest
   become: true
   become_method: sudo
