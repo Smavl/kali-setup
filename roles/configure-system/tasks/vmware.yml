@@ -1,3 +1,6 @@
+- name: Update apt cache
+  apt:
+    update_cache: yes
 - name: "Ensure that open-vm-tools packages are installed"
   package:
     name:
@@ -7,4 +10,16 @@
     state: latest
   become: true
   become_method: sudo
+- name: "Install docker"
+  package:
+    name:
+      - docker.io
+    state: latest
+  become: true
+  become_method: sudo
+- name: "Enable and start Docker service"
+  systemd:
+    name: docker
+    enabled: yes
+    state: started
 

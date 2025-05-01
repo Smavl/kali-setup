@@ -23,13 +23,13 @@
   become_method: sudo
 
 # Forensics
-#- name: "Forensics"
-#  package:
-#    name:
-#      - x
-#    state: latest
-#  become: true
-#  become_method: sudo
+- name: "Forensics"
+  package:
+    name:
+      - foremost
+    state: latest
+  become: true
+  become_method: sudo
 
 # Stego 
 #- name: "Stego tools"

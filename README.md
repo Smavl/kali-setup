@@ -41,13 +41,13 @@ kali@kali:~$ sudo mount-shared-folders
         - usefull git repos: secLists, linPeas ...
         - and misc. tools
 
+- docker setup
 
 ## TODO:
 - Burp cert
 - semi-auto install firefox extensions [ansible-role-firefox](https://github.com/unrblt/ansible-role-firefox)
 - Keybindings (launch terminal and etc)
 - more tools
-
 
 - foremost
 - volatility 2 & 3
