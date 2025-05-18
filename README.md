@@ -47,7 +47,12 @@ kali@kali:~$ sudo mount-shared-folders
 - Burp cert
 - semi-auto install firefox extensions [ansible-role-firefox](https://github.com/unrblt/ansible-role-firefox)
 - Keybindings (launch terminal and etc)
-- more tools
-
+- git-dumper
+- rg
+- sublime-text [installation](https://www.sublimetext.com/docs/linux_repositories.html#apt)
+- strace
+- ltrace
 - foremost
 - volatility 2 & 3
+
+- more tools...
