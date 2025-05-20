@@ -3,6 +3,7 @@
   package:
     name:
       - jq
+      - rg
       - pipx
       - flameshot
       - gh
@@ -79,5 +80,6 @@
     - { repo: "https://github.com/RsaCtfTool/RsaCtfTool", location: "/home/kali/gitclones/RSACtfTool" }
     - { repo: "https://github.com/Zeecka/AperiSolve", location: "/home/kali/gitclones/AperiSolve" }
     - { repo: "https://github.com/peass-ng/PEASS-ng", location: "/home/kali/gitclones/PEASS-ng" }
+    - { repo: "https://github.com/arthaud/git-dumper", location: "/home/kali/gitclones/git-dumper" }
   # become: true
   # become_method: sudo

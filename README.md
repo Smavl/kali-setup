@@ -31,8 +31,9 @@ kali@kali:~$ sudo mount-shared-folders
 ## Tasks/roles:
 
 - Configure startup script
-    - set keyboard layout
+    - set keyboard layout + nodeadkeys
     - rebind capslock to escape
+    - Gnome: window/workspace keybinds
 - Packages
     - kali-repo.yml: extra kali packages
     - tools.yml: 
@@ -47,12 +48,8 @@ kali@kali:~$ sudo mount-shared-folders
 - Burp cert
 - semi-auto install firefox extensions [ansible-role-firefox](https://github.com/unrblt/ansible-role-firefox)
 - Keybindings (launch terminal and etc)
-- git-dumper
-- rg
 - sublime-text [installation](https://www.sublimetext.com/docs/linux_repositories.html#apt)
-- strace
-- ltrace
-- foremost
 - volatility 2 & 3
-
+- kerbrute
+- bloodhound
 - more tools...
