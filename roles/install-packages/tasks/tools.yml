@@ -11,6 +11,10 @@
       - tealdeer
       - openvpn
       - wireguard
+      - neovim 
+      - ranger
+      - strace
+      - ltrace
     state: latest
   become: true
   become_method: sudo
